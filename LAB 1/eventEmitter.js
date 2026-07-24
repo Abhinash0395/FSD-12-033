@@ -17,7 +17,17 @@ const checkout = (name) => {
 };
 
 const task = new EventEmitter();
-task.on("greeting",login);
+task.once("greet", start);
+task.on("greet", login);
+task.on("greet", working);
+task.on("greet", checkout);
 
-task.emit("greeting", "Abhinash Rai");
-task.emit("greeting", "Mudit Lohani");
+task.once("exit", () => {
+    console.log("System shutting down");
+});
+
+task.emit("greet", "Abhinash Rai");
+task.emit("greet", "Mudit Lohani");
+task.off("greet", working);
+task.emit("greet", "Manya Goyal");
+task.emit("exit", "Manager");
