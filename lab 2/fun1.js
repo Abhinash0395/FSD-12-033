@@ -12,7 +12,7 @@ const f3 = () => {
 
 function main() {
     console.log("main");
-    setTimeout(f1, 1000);fun1
+    setTimeout(f1, 1000);
     f2();
     f3();
     console.log("end");
